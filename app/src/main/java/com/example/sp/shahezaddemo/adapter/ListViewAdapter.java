@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.sp.shahezaddemo.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by SP on 1/25/17.
  */
@@ -16,11 +18,13 @@ import com.example.sp.shahezaddemo.R;
 
 public class ListViewAdapter extends BaseAdapter {
 
+    private final ArrayList<String> listResult;
     private  Context mContext;
     private final LayoutInflater mInflater;
 
-    public ListViewAdapter(Context context) {
-        mContext = context;
+    public ListViewAdapter(Context context, ArrayList<String> listResult) {
+        this.mContext = context;
+        this.listResult = listResult;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
@@ -28,17 +32,17 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 100;
+    return listResult.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return position;
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -61,6 +65,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         holder.textView1.setText(String.valueOf(position));
         holder.textView3.setText(String.valueOf(position));
+        holder.textView2.setText(listResult.get(position));
         if (position%2==0)
         {
             holder.textView1.setVisibility(View.VISIBLE);
