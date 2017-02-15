@@ -14,6 +14,11 @@ public class ShahezadApplication extends Application {
     public void onCreate() {
         super.onCreate();
         UtilLog.setDebug(true);
-
+        UtilLog.setVerbose(true);
+        UtilLog.setWarn(true);
+        UtilLog.setInfo(true);
+        UtilLog.setError(true);
     }
+
+
 }

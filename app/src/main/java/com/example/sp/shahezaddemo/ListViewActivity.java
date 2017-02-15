@@ -77,4 +77,5 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         Log.d("testListViewActivity",String.valueOf(position));
 
     }
+
 }

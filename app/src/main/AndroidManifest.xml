@@ -19,6 +19,7 @@
         <activity android:name=".ListViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".DialogueActivity"></activity>
     </application>
 
 </manifest>

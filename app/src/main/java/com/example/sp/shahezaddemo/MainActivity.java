@@ -10,10 +10,21 @@ import android.widget.Toast;
 
 import com.example.sp.shahezaddemo.util.UtilLog;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends BaseActivity {
 
     private ImageButton bt1;
     private ImageButton bt3;
+
+    @OnClick(R.id.bt2)
+    public void button2Click(){
+        toActivity(DialogueActivity.class);
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -21,6 +32,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         initialView();
         initialListener();
+        ButterKnife.bind(this);
     }
 
     private void initialView()
@@ -62,11 +74,11 @@ public class MainActivity extends BaseActivity {
 //        Toast.makeText(this, "Button2 was clicked", Toast.LENGTH_LONG).show();
         toastLong("Button 2 was clicked");
         UtilLog.logD("testD", "Toast");
-//          Log.d("testD","Toast");
-////        Log.e("testE","Toast");
-////        Log.i("testI","Toast");
-////        Log.v("testI","Toast");
-////        Log.w("testI","Toast");
+        UtilLog.logE("testE","Toast");
+        UtilLog.logI("testI","Toast");
+        UtilLog.logV("testV","Toast");
+        UtilLog.logW("testW","Toast");
+
 
 
 
