@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="standard" type="id" />
+    <item name="singleTop" type="id" />
+    <item name="singleInstance" type="id" />
+    <item name="singleTask" type="id" />
+</resources>
