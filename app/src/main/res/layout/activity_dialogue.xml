@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="left|center_vertical"
-            android:text="NormalDialogue"/>
+            android:text="CustomDialog"/>
 
 
         </RadioGroup>

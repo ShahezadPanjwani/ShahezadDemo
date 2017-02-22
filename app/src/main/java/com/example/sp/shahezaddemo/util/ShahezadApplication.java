@@ -1,4 +1,4 @@
-package com.example.sp.shahezaddemo;
+package com.example.sp.shahezaddemo.util;
 
 import android.app.Application;
 

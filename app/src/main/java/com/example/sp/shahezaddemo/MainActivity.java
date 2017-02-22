@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.sp.shahezaddemo.bean.Book;
 import com.example.sp.shahezaddemo.util.UtilLog;
 
 import butterknife.ButterKnife;
@@ -20,8 +21,8 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.bt2)
     public void button2Click(){
-        toActivity(DialogueActivity.class);
-
+        Intent intent = new Intent(this, DialogueActivity.class);
+        startActivityForResult(intent, 2);
     }
 
 
@@ -33,6 +34,12 @@ public class MainActivity extends BaseActivity {
         initialView();
         initialListener();
         ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        toastShort("onStart");
     }
 
     private void initialView()
@@ -54,19 +61,49 @@ public class MainActivity extends BaseActivity {
             {
                 Toast.makeText(v.getContext(), "Button1 was clicked", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(v.getContext(),ViewPagerActivity.class);
+                intent.putExtra("key","value");
+                Bundle bundle = new Bundle();
+                bundle.putInt("Integer", 12345);
+                Book book = new Book();
+                book.setName("Android");
+                book.setAuthor("Panjwani");
+                bundle.putSerializable("book", book);
+                intent.putExtras(bundle);
                 startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
+
+
         bt3.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
-                toActivity(ListViewActivity.class);
+                Intent intent = new Intent(v.getContext(),ListViewActivity.class);
+                startActivityForResult(intent,3);
 //                Intent intent = new Intent(v.getContext(),ListViewActivity.class);
 //                startActivity(intent);
             }
             });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                String message = data.getStringExtra("message");
+                toastShort(message);
+                break;
+            case 2:
+                toastShort("Dialog");
+                break;
+            case 3:
+                toastShort("ListView");
+                break;
+            default:
+        }
     }
 
     public void onClick(View v)
