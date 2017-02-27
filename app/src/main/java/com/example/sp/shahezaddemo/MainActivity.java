@@ -47,7 +47,6 @@ public class MainActivity extends BaseActivity {
     {
         bt1 = (ImageButton)findViewById(R.id.bt1);
         bt3 = (ImageButton)findViewById(R.id.bt3);
-        bt2 = (ImageButton)findViewById(R.id.bt2);
 
 
     }
@@ -56,12 +55,6 @@ public class MainActivity extends BaseActivity {
 
     private void initialListener()
     {
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         bt1.setOnClickListener(new View.OnClickListener()
         {
